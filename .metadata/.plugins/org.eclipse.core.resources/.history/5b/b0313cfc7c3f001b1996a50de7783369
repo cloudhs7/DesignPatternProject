@@ -1,0 +1,29 @@
+package junitTest;
+
+import java.io.FileWriter;
+import java.io.IOException;
+import java.io.Writer;
+
+import org.junit.Test;
+
+public class XMLExportTest {
+
+	@Test
+	public void XMLexportTest() throws IOException  {
+		
+		//테이블 생성 후 xml로 export 하는 test
+		Table sampleTable = TableFactory.create("sampleTable", new String[] {"subject", "project"});
+		sampleTable.insert(new String[] {"DP","HolubSQL"});
+		sampleTable.insert(new String[] {"CG","cubeMan"});
+		
+		Writer out = new FileWriter( "../../../sampleTableExport.xml");
+		sampleTable.export(new XMLExporter(out));
+		
+		out.close();
+		
+	}
+}
+
+
+
+

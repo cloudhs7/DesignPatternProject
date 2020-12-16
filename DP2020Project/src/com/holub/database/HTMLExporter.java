@@ -18,30 +18,32 @@ public class HTMLExporter implements Table.Exporter {
 							   Iterator columnNames ) throws IOException
 
 	{	this.width = width;
+		out.write("\n<HEAD>\n");
+		out.write("<TITLE>");
 		out.write(tableName == null ? "<anonymous>" : tableName );
-		out.write("<br>\n");
+		out.write("</TITLE>\n");
+		out.write("</HEAD>\n");
+		out.write("<BODY>\n");
 		storeRow( columnNames ); // comma separated list of columns ids
 	}
 
 	public void storeRow( Iterator data ) throws IOException
 	{	int i = width;
 		while( data.hasNext() )
-		{	Object datum = data.next();
-
-			// Null columns are represented by an empty field
-			// (two commas in a row). There's nothing to write
-			// if the column data is null.
+		{	
+			Object datum = data.next();
+		
 			if( datum != null )	
 				out.write( datum.toString() );
-
-			if( --i > 0 )
-				out.write("\t");
 		}
 		out.write("<br>\n");
 	}
 
 	public void startTable() throws IOException {out.write("<HTML>");/*nothing to do*/}
-	public void endTable()   throws IOException {out.write("</HTML>");/*nothing to do*/}
+	public void endTable()   throws IOException {
+		out.write("</BODY>\n");
+		out.write("</HTML>");
+	}
 }
 
 /*  (c) 2004 Allen I. Holub. All rights reserved.

@@ -1,0 +1,29 @@
+package junitTest;
+
+import static org.junit.Assert.*;
+
+import java.io.FileWriter;
+import java.io.IOException;
+import java.io.Writer;
+
+import org.junit.Test;
+
+import com.holub.database.Table;
+import com.holub.database.TableFactory;
+import com.holub.database.XMLExporter;
+
+public class xmlTEST {
+
+	@Test
+	public void test() throws IOException {
+		Table sampleTable = TableFactory.create("sampleTable", new String[] {"subject", "project"});
+		sampleTable.insert(new String[] {"DP","HolubSQL"});
+		sampleTable.insert(new String[] {"CG","cubeMan"});
+		
+		Writer out = new FileWriter( "../../../sampleTableExport.xml");
+		sampleTable.export(new XMLExporter(out));
+		
+		out.close();
+	}
+
+}

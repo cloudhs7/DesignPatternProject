@@ -65,7 +65,8 @@ import java.util.*;
  */
 
 public class CSVImporter implements Table.Importer
-{	private BufferedReader  in;			// null once end-of-file reached
+{
+	private BufferedReader  in;			// null once end-of-file reached
 	private String[]        columnNames;
 	private String          tableName;
 

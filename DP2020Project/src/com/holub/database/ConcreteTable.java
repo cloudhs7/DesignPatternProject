@@ -568,6 +568,11 @@ import com.holub.tools.ArrayIterator;
 			while (column.hasNext())
 				columnNames[i++] = column.next().toString();
 		}
+		
+		else {
+
+			// select * from address,name where ~~ 수행 시 오류 - columnNames가 null로 전달
+		}
 
 		if (other != null)
 			otherTables = (Table[]) other.toArray(new Table[other.size()]);
@@ -808,16 +813,38 @@ import com.holub.tools.ArrayIterator;
 																				// "people" table will
 																				// fail if this operation fails.
 
-			Writer out = new FileWriter("people_hstest_html");
-			people.export(new HTMLExporter(out));
-			out.close();
+			//Writer out = new FileWriter("people_hstest_xml");
+			
+//			people.export(new HTMLExporter(out));
+//			out.close();
+			
+			//people.export(new XMLExporter(out));
+			//out.close();
 			
 //			people.export(new CSVExporter(out));
 //			out.close();
 
-			Reader in = new FileReader("people");
-			people = new ConcreteTable(new CSVImporter(in));
+//			Reader in = new FileReader("people");
+//			people = new ConcreteTable(new CSVImporter(in));
+//			System.out.println("++++++++++++++++++");
+//			print(people);
+//			System.out.println("++++++++++++++++++");
+//			in.close();
+			
+			
+			Reader in = new FileReader("people_test_xml_for_importer");
+			people = new ConcreteTable(new XMLImporter(in));
+			System.out.println("++++++++++++++++++");
+			print(people);
+			System.out.println("++++++++++++++++++");
 			in.close();
+			
+//			Reader in = new FileReader("people_test_xml_for_importer");
+//			people = new ConcreteTable(new CSVImporter(in));
+//			print(people);
+//			in.close();
+			
+			
 		}
 
 		public void testJoin() {
