@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<qualifiedTypeNameHistroy>
+    <fullyQualifiedTypeName name="com.holub.database.Table.Exporter"/>
+    <fullyQualifiedTypeName name="java.util.regex.Pattern"/>
+    <fullyQualifiedTypeName name="java.util.regex.Matcher"/>
+    <fullyQualifiedTypeName name="org.junit.Test"/>
+    <fullyQualifiedTypeName name="java.io.Writer"/>
+    <fullyQualifiedTypeName name="java.io.FileWriter"/>
+    <fullyQualifiedTypeName name="com.holub.database.Table"/>
+    <fullyQualifiedTypeName name="com.holub.database.TableFactory"/>
+    <fullyQualifiedTypeName name="com.holub.database.XMLExporter"/>
+    <fullyQualifiedTypeName name="java.io.IOException"/>
+</qualifiedTypeNameHistroy>

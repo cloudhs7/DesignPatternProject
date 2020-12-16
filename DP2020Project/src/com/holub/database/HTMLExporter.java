@@ -34,7 +34,7 @@ public class HTMLExporter implements Table.Exporter {
 			Object datum = data.next();
 		
 			if( datum != null )	
-				out.write( datum.toString() );
+				out.write( datum.toString()+" " );
 		}
 		out.write("<br>\n");
 	}

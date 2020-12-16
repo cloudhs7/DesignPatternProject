@@ -813,13 +813,13 @@ import com.holub.tools.ArrayIterator;
 																				// "people" table will
 																				// fail if this operation fails.
 
-			//Writer out = new FileWriter("people_hstest_xml");
+			Writer out = new FileWriter("people_hstest_xml2");
 			
 //			people.export(new HTMLExporter(out));
 //			out.close();
 			
-			//people.export(new XMLExporter(out));
-			//out.close();
+			people.export(new XMLExporter(out));
+			out.close();
 			
 //			people.export(new CSVExporter(out));
 //			out.close();
@@ -834,6 +834,7 @@ import com.holub.tools.ArrayIterator;
 			
 			Reader in = new FileReader("people_test_xml_for_importer");
 			people = new ConcreteTable(new XMLImporter(in));
+			System.out.println("people xml을 받아 table의 내용 출력");
 			System.out.println("++++++++++++++++++");
 			print(people);
 			System.out.println("++++++++++++++++++");
